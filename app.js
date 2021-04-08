@@ -57,9 +57,9 @@ function initFiles (dir, files = []) {
     for (file of files) {
       try {
         const fileName = `${dir}/${file}`
-        const fd = fs.openSync(fileName, 'rwx')
+        const fd = fs.openSync(fileName, 'r')
         FILES.push(fileName)
-        fs.close(fd)
+        fs.closeSync(fd)
       } catch (e) {
         console.error('Skip file', file)
       }
